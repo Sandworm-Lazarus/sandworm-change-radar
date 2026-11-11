@@ -1,0 +1,2 @@
+# Optional upstream server, not needed by this stdlib API client.
+changedetection.io==0.70.3

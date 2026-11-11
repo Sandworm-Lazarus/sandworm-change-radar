@@ -1,0 +1,13 @@
+const test=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs');const path=require('node:path');
+const {parse,entries,MAX_BYTES}=require('../web/report-core.js');
+const slug=path.basename(path.resolve(__dirname,'..'));
+const fixture=(extra='')=>`{"schema_version":1,"project":"${slug}","mode":"fixture","summary":{},"findings":[]${extra}}`;
+test('accepts a valid Thai report',()=>assert.equal(parse(fixture(',"message":"ภาษาไทย"'),slug).message,'ภาษาไทย'));
+test('rejects duplicate and escaped duplicate keys',()=>{assert.throws(()=>parse(fixture(',"mode":"live"'),slug));assert.throws(()=>parse('{"a":1,"\\u0061":2}',slug));});
+test('rejects wrong project and unsupported schema',()=>{assert.throws(()=>parse(fixture(),'other'));assert.throws(()=>parse(fixture().replace('"schema_version":1','"schema_version":2'),slug));});
+test('rejects misleading mode, unknown summary shape and scalar root',()=>{assert.throws(()=>parse(fixture().replace('"fixture"','"success"'),slug));assert.throws(()=>parse(fixture().replace('"summary":{}','"summary":[]'),slug));assert.throws(()=>parse('null',slug));});
+test('rejects trailing payload, invalid escapes, missing delimiters and unsafe numbers',()=>{for(const s of [fixture()+'{}','{"x":"\\x"}',fixture().slice(0,-1),fixture(',"n":9007199254740993'),fixture(',"n":1e999')])assert.throws(()=>parse(s,slug));});
+test('enforces UTF-8 byte, depth, node and findings limits',()=>{assert.throws(()=>parse('ก'.repeat(MAX_BYTES/3+1),slug));assert.throws(()=>parse('['.repeat(42)+'0'+']'.repeat(42),slug));assert.throws(()=>parse(fixture(',"many":['+'0,'.repeat(30000)+'0]'),slug));assert.throws(()=>entries({findings:Array(10001).fill({})}));});
+test('prototype keys remain inert own properties',()=>{const r=parse(fixture(',"__proto__":{"polluted":true}'),slug);assert.equal(Object.getPrototypeOf(r),null);assert.equal({}.polluted,undefined);});
+test('sample belongs to this project and declares synthetic mode',()=>{const data=fs.readFileSync(path.join(__dirname,'../web/demo.json'),'utf8');const report=parse(data,slug);assert.equal(report.mode,'fixture');entries(report);});
+test('viewer uses text-only rendering and restrictive local assets',()=>{const app=fs.readFileSync(path.join(__dirname,'../web/app.js'),'utf8'),html=fs.readFileSync(path.join(__dirname,'../web/index.html'),'utf8');assert.ok(!app.includes('innerHTML'));assert.match(html,/default-src 'none'/);assert.match(html,/connect-src 'self'/);assert.ok(!/https?:\/\/[^" ]+\.(?:js|css)/.test(html));assert.match(app,/TextDecoder\('utf-8',\{fatal:true,ignoreBOM:true\}\)/);});

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "project": "sandworm-change-radar",
+  "engine_version": "0.1.0",
+  "mode": "fixture",
+  "upstream": {
+    "name": "changedetection.io",
+    "contract_version": "0.70.3"
+  },
+  "summary": {
+    "changed": true,
+    "change_blocks": 1,
+    "before_lines": 3,
+    "after_lines": 3
+  },
+  "findings": [
+    {
+      "id": "change-1",
+      "status": "replace",
+      "before_lines": [
+        2,
+        3
+      ],
+      "after_lines": [
+        2,
+        3
+      ],
+      "before_sha256": "c3a552d45eb3d5ab37adebc80df77cab79bc0dff8f516328edd849ba86d6d453",
+      "after_sha256": "729a197cfbe515359898f4ddf1eb201519c42ee9d872f924c0de3240b560e44a",
+      "message": "เนื้อหาส่วนนี้เปลี่ยน ตรวจเทียบ snapshot ต้นทาง"
+    }
+  ],
+  "evidence": {
+    "before_sha256": "5f082496a75d9519be9dba0d893e9eb498d528cbecf64b7208412cbb4725b735",
+    "after_sha256": "0f3384207c087e33ad4cd93a875da9760392a5702664cb793e4abd4e597d474b",
+    "normalized_before_sha256": "8a8ad5928d1ec051bbf1a490de3bd4840d36f670a71315e0193e33d7c6d08f3d",
+    "normalized_after_sha256": "228e55a4e873bf3c69cc2e0e9c0a47c7216045e8150d99c82f95beaf4c4f55d2",
+    "ignore_prefixes_sha256": "ed894cab2c574cfdfe592f15ca776050c16ea3640c08a37629e5b78d95291401"
+  },
+  "privacy": {
+    "raw_snapshot_included": false,
+    "origin_and_watch_id_omitted": true
+  },
+  "boundaries": [
+    "Diff does not establish truth or detect every semantic change.",
+    "Ignore rules can hide meaningful changes. Review the ignored prefixes."
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "project": "sandworm-change-radar",
+  "release": "0.1.0",
+  "status": "passed",
+  "cloud_test_count": 35,
+  "browser_qa": "not_completed_cloud_browser_runtime_unavailable",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "scripts/validate.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.88
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/upstream_smoke.py"
+      ],
+      "exit_code": 0,
+      "seconds": 1.32
+    }
+  ],
+  "source_sha256": {
+    ".github/workflows/verify.yml": "f3ec4d82095fae4495fcaa975a3ce10b4ec0907adc2195c7b4316b491d58b895",
+    ".gitignore": "706632908b9381d08426c3f1ff6099c8e4d4eb3322d7997dab1b015bd55e805d",
+    "CHANGELOG.md": "5233a8f92845dc21d4be7bd665beea8e49a993f2198d6c146d7017fd6c979e8f",
+    "LICENSE": "2d217bec5bcc111f336e3d3429550f9efdcd40fa06906a81c991615aed24dd8a",
+    "README.md": "23358f1d0f13b4c728560285488380be231aab191069888a0f38e00947be8380",
+    "SECURITY.md": "42b13fba4929aeaa2006161913d8e6c988d43f0f57a6626c2d525b6d52178170",
+    "THIRD_PARTY_NOTICES.md": "1be139fa62e8c5af8e9b45e53f9a5c10b46b54086a994b7f69ec0f7884a75aa4",
+    "docs/BROWSER_QA.md": "20a67c95f8f8e3f3f39d6ece731d8e41aa6e67ab54d47c59cf191018badeb2aa",
+    "docs/WEB_VIEWER.md": "675ac076031f2ebf1ab556154b3a7f27da3bde1203245850262e185edd8ffc91",
+    "docs/cover.svg": "33a6c692ce78a06fd6cb39a47cb57f5fa668b335d0076087e0983075a0fc0e1b",
+    "examples/after.txt": "0f3384207c087e33ad4cd93a875da9760392a5702664cb793e4abd4e597d474b",
+    "examples/before.txt": "5f082496a75d9519be9dba0d893e9eb498d528cbecf64b7208412cbb4725b735",
+    "examples/report.json": "8d6f16cb871a221b68e634502c11f19c791134d17352d1344d8a0b3e291601d8",
+    "requirements-upstream.txt": "37e07fc73765d04bebce687a596108368d956f6edce88d41991d84144b587f13",
+    "scripts/upstream_smoke.py": "2d3e3fe052d5b08f2b9eea53827e1e5b17b3440d8a183ce254cbe88e218847d3",
+    "scripts/validate.py": "c80aed21220ebbd68dac579d0c3fa36263efb512b7e7238020dc1a25c3bd6b9a",
+    "src/change_radar.py": "a9e439ae66757305e16980e7e4c9e87db6cf5876f7caa11cf5a9acd6b993788e",
+    "tests/test_radar.py": "976a9833423fe319751a090235dfdf83c302ed28ba612de3a58def478de1e756",
+    "tests/web.test.cjs": "4dd1a5472ee0a89fc5f48fde0e6cf69a6ffb7a67ba7418d7696f1f0dffb5148f",
+    "web/_headers": "17c3b142c0879287e6ee2170c9323a32094953821992dfa1487516892d874f56",
+    "web/app.js": "335971057a297efb7a7dd4466eb11787db32d11a05d271b1cd9ae9cf84d0e11d",
+    "web/demo.json": "579403b48b2375d56a5eec0b5cd60190bef5b1c1c5a58a7f4eb53ad8ca1caa5a",
+    "web/fonts/Anuphan-OFL.txt": "cbc57ac0dddda1b70f246a16358fc3c2a32628a23a6d10ef64f746141d3fb159",
+    "web/fonts/Chakra-Petch-OFL.txt": "13831d02389d917d22fcfa6c79f98f8acbf61d230add0e73a4d4dc5f3bfb9e56",
+    "web/fonts/JetBrains-Mono-OFL.txt": "b2fe5e8987594e9ffd1d2ca52a2f5d73eb8335243893c5d6254b5ad69269591d",
+    "web/index.html": "0170da35a89cfbd3425d5b7d708ee7d0431622e7eb86bca98f99a6991dab4c4e",
+    "web/mark.svg": "ee731288307e122e75090d2b39fd735667292e8b069b430b8d760a2a3c3cd5ac",
+    "web/network.svg": "31596a6bbc4dea95c4abc8edd7b98bd9f00bad7ef797681de1b0574cb80f0e38",
+    "web/report-core.js": "7ee673ea5f6354fb86971883b22c73bb8baaba4a3db60ab273685f458db4c894",
+    "web/styles.css": "8924419cecaf69c9c39a29955a126f6773e6e33cff92849f525fbf6b8bdd151a"
+  },
+  "scope": "Exact source and synthetic fixtures; upstream engine proof and unit counts in validation/smoke reports. No hosted GitHub CI success is asserted."
+}

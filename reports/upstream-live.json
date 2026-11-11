@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "changedetection.io",
+  "version": "0.70.3",
+  "status": "passed_real_api_resources",
+  "scope": "Installed upstream Watch model + datastore + history/snapshot/difference resource classes over local HTTP; synthetic histories seeded directly; full crawler, scheduler, browser and external websites not tested",
+  "assertions": {
+    "authenticated_history": "passed",
+    "snapshot_text": "passed",
+    "upstream_diff": "passed",
+    "sandworm_comparison": "passed"
+  },
+  "response_evidence": {
+    "before_sha256": "c9c62d49021ea8a09559472635b746f0a93a9232d07d65a60207f251ef909d38",
+    "after_sha256": "9de476ed608fbec071a62364842009119139e22f0b07b5fa5483022d7c36ed45",
+    "normalized_before_sha256": "c9c62d49021ea8a09559472635b746f0a93a9232d07d65a60207f251ef909d38",
+    "normalized_after_sha256": "9de476ed608fbec071a62364842009119139e22f0b07b5fa5483022d7c36ed45",
+    "ignore_prefixes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "upstream_diff_sha256": "c5a5b5e1290a8bd12fe7700969d3c2162c35a932337ca535c27f0c726d0f4af1",
+    "snapshot_timestamps": [
+      "1700000000",
+      "1700000001"
+    ]
+  }
+}

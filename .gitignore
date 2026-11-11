@@ -1,0 +1,16 @@
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+.runtime/
+.tools/
+datastore/
+*.log
+.coverage
+.cache/
+*.key
+*.egg-info/
+out/
+output/
